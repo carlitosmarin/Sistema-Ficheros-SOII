@@ -1,21 +1,21 @@
-/*  
+/*
      Fichero: mi_rm.c
        Autor: Carlos Marin
        Fecha: 08/06/2014
- Descripcion: Programa cliente. Borra un fichero o directorio. 
+ Descripcion: Programa cliente. Borra un fichero o directorio.
  		 Uso: ./mi_rm disco /ruta
- */ 
- 
-#include "directorios.h"
+ */
 
-int main (int argc, char **argv) {	
+#include "./src/directorios.h"
+
+int main (int argc, char **argv) {
 	if (argc != 3) {
 		printf("Número de parametros incorrectos\n");
 		return -1;
 	}
-	//Montamos el disco 
+	//Montamos el disco
 	bmount(argv[1]);
-	
+
 	struct STAT stat;
 	if(mi_stat(argv[2],&stat) < 0){
 		bumount();
@@ -30,7 +30,7 @@ int main (int argc, char **argv) {
 	if(mi_unlink(argv[2]) == 0){
 		puts("Se ha borrado correctamente.");
 	} else ("Error: No se ha podido eliminar el fichero con mi_rm\n");
-	
+
 	bumount();
 	return 0;
 }

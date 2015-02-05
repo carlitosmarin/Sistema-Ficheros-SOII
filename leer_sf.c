@@ -6,7 +6,7 @@
  		 Uso: ./leer_sf disco
  */
 
-#include "directorios.h"
+#include "./src/directorios.h"
 
 int main (int argc, char **argv) {
 	if (argc != 2) {

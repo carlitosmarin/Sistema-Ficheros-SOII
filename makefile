@@ -8,11 +8,11 @@ DEBUG = -g
 CFLAGS = -pthread
 PROGRAMS = mi_mkfs leer_sf mi_mkdir mi_chmod mi_ls mi_stat mi_cat mi_ln mi_rm escribir simulacion verificacion
 
-BLOQUES = bloques.c
-FB = ficheros_basico.c
-F = ficheros.c
-D = directorios.c
-SEM = semaforo_mutex_posix.c
+BLOQUES = ./src/bloques.c
+FB = ./src/ficheros_basico.c
+F = ./src/ficheros.c
+D = ./src/directorios.c
+SEM = ./src/semaforo_mutex_posix.c
 
 all: $(PROGRAMS)
 

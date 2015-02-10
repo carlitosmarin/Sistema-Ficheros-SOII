@@ -54,7 +54,8 @@ void proceso(int pid){
 	struct registro registro;
 	registro.nEscritura = 0;
 	srand(pid);
-	//exit(0); //Antes de escriibr, solo los creamos
+	
+	//Antes de escriibr, solo los creamos
 	int i;
 	for(i = 0; i < 50; i++){//Escribimos los 50 registros
 	 	registro.fecha=time(NULL); registro.pid=getpid(); registro.nEscritura=i+1; registro.posicion=rand()%posMax;
@@ -62,8 +63,7 @@ void proceso(int pid){
 		if(mi_write(camino,&registro,registro.posicion*sizeof(struct registro),sizeof(struct registro)) < 0){
 			printf("ERROR: Al escribir en %s\n", camino);
 			exit(1);
-		} //else printf("El fichero (%s) se ha escrito bien\n", camino);
-		//usleep(50000); //Esperamos 0,05 segundos
+		}
 	}
 	exit(0);
 }
